@@ -148,3 +148,42 @@ export class DoublyLinkedList implements INodeList {
     return deletedHead;
   }
 }
+
+class Stack {
+ constructor() {
+   this.doublyLinkedList = new DoublyLinkedList();
+ }
+ 
+ peek() {
+   return this.doublyLinkedList.head.value;
+ }
+ 
+ push(value) {
+   this.doublyLinkedList.prepend(value);
+ }
+ 
+ 
+ pop() {
+   const removedHead = this.doublyLinkedList.deleteHead();
+   return removedHead ? removedHead.value : null;
+ }
+}
+
+class Queue {
+  constructor() {
+    this.doublyLinkedList = new DoublyLinkedList();
+  }
+ 
+  peek() {
+    return this.doublyLinkedList.head.value;
+  }
+ 
+  enqueue(value) {
+    this.doublyLinkedList.append(value);
+  }
+ 
+  dequeue() {
+    const removedHead = this.doublyLinkedList.deleteHead();
+    return removedHead ? removedHead.value : null;
+  }
+}
